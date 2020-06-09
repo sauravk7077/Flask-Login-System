@@ -1,9 +1,74 @@
+body{
+    --main-bg-color: #173145;
+    --main-dark-color: hsl(320, 13%, 13%);
+    --main-dark-light: hsl(320, 13%, 20%);
+    --stand-out: hsl(60, 61%, 65%);
+    --stand-out-2: #B4C792;
+    --hover: hsl(60, 70%, 40%);
+    --light-green: #269493;
+    --central-green: #66B39A;
+    padding: 0;
+    margin: auto;
+
+    background-color: var(--main-bg-color);
+}
 #header{
     display: flex;
-    background: linear-gradient(90deg,red, blue);
+    background: var(--main-dark-color);
+    justify-content: space-between;
 }
 
 #logo{
-    font-size: 40px;
-    text-align: center;
+    padding-left: 20px;
+    font-size: 30px;
+    color: var(--stand-out);
+    flex-basis: 200px;
+    flex-grow: 1;
+}
+#logo a{
+    font-family: 'Bungee Shade', cursive;
+}
+.navbar nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px 0 20px;
+    padding: 0;
+    flex-basis: 340px;
+}
+.navbar{
+    flex-basis: 300px;
+    flex-grow: 1;
+}
+.navbar, .navbar nav, .navbar nav ul{
+    display: flex;
+    justify-content: flex-end;
+}
+.link{
+    list-style: none;
+    flex-basis: 100px;
+    background-color: var(--main-dark-light);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: var(--stand-out);
+    font-family: 'PT Mono', monospace;
+}
+
+a:hover{
+    cursor: pointer;
+    color: var(--hover);
+}
+
+
+@media (min-width: 700px){
+    nav{
+        flex-basis: 400px;
+    }
 }

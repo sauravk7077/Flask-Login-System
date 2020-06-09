@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=PT+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="header">
         <div id="logo">
             <a href="{{ url_for('main.home') }}">Flask Login System</a>
         </div>
-        <div class="navbar"></div>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li class="link"><a href="{{ url_for('main.home') }}">Home</a></li>
+                    <li class="link"><a href="{{ url_for('users.register') }}">Register</a></li>
+                    <li class="link"><a href="#">Login</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
     {% block content %}{% endblock %}
 </body>
 </html>
