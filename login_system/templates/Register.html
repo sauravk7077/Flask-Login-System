@@ -14,6 +14,14 @@
                     {{ form.email(class='form-control') }}
                 </div>
                 <div class="form-group">
+                    {{ form.password.label(class='form-label') }}
+                    {{ form.password(class='form-control') }}
+                </div>
+                <div class="form-group">
+                    {{ form.confirm_password.label(class='form-label') }}
+                    {{ form.confirm_password(class='form-control') }}
+                </div>
+                <div class="form-group">
                     {{ form.submit }}
                 </div>
             </fieldset>
