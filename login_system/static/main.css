@@ -1,3 +1,10 @@
+/* 
+---------------------------
+Saves all the main colors in
+variables
+---------------------------
+ */
+
 body{
     --main-bg-color: #173145;
     --main-dark-color: hsl(320, 13%, 13%);
@@ -10,24 +17,31 @@ body{
     padding: 0;
     margin: auto;
 
-    background-color: var(--main-bg-color);
+    /* background-color: var(--main-bg-color); */
 }
+
+
 #header{
     display: flex;
-    background: var(--main-dark-color);
+    /* background: var(--main-dark-color); */
     justify-content: space-between;
 }
+
 
 #logo{
     padding-left: 20px;
     font-size: 30px;
-    color: var(--stand-out);
+    /* color: var(--stand-out); */
     flex-basis: 200px;
     flex-grow: 1;
 }
+
+
 #logo a{
     font-family: 'Bungee Shade', cursive;
 }
+
+
 .navbar nav ul{
     display: flex;
     flex-wrap: wrap;
@@ -37,38 +51,128 @@ body{
     padding: 0;
     flex-basis: 340px;
 }
+
+
 .navbar{
     flex-basis: 300px;
     flex-grow: 1;
 }
+
+
 .navbar, .navbar nav, .navbar nav ul{
     display: flex;
     justify-content: flex-end;
 }
+
+
 .link{
     list-style: none;
     flex-basis: 100px;
-    background-color: var(--main-dark-light);
+    /* background-color: var(--main-dark-light); */
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
 a{
     text-decoration: none;
-    color: var(--stand-out);
+    /* color: var(--stand-out); */
     font-family: 'PT Mono', monospace;
 }
 
+
 a:hover{
     cursor: pointer;
-    color: var(--hover);
+    /* color: var(--hover); */
 }
 
+
+/* 
+------------------------
+For responsive content
+------------------------
+*/
 
 @media (min-width: 700px){
     nav{
         flex-basis: 400px;
     }
 }
+
+
+/* 
+-------------------------------
+Forms
+-------------------------------
+ */
+
+
+.content-section{
+    display: flex;
+    justify-content: center;
+}
+
+
+.content-section form{
+    flex-basis: 400px;
+    flex-grow: 0.35;
+}
+
+
+.form-group{
+    display: flex;
+    text-align: left;
+    margin: 20px 10px 0 10px;
+    justify-content: center;
+}
+
+
+.form-group label{
+    flex: none;
+    display: block;
+    font-size: 1em;
+    width: 100px;
+}
+
+
+.form-group input{
+    display: block;
+}
+
+.form-submit{
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 750px) {
+    .form-group{
+        display: block;
+    }
+    .form-group label{
+        width: 200px;
+        text-align: center;
+    }
+    .form-group *{
+        margin: auto;
+    }
+}
+
+/* 
+--------------------------
+Inputs, Buttons
+--------------------------
+ */
+
+
+ input[type='text'], input[type='password'] {
+     height: 40px;
+     width: 200px;
+     text-align: center;
+ }
+
+ button, input[type='submit']{
+     height: 40px;
+     width: 100px;
+ }
