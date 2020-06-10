@@ -4,7 +4,7 @@ from wtforms import StringField, SubmitField, PasswordField
 
 class RegistrationForm(FlaskForm):
     username = StringField(label="Username", \
-        render_kw={"placeholder": "Enter your username"},validators=[DataRequired(),Length(min=4, max=5)])
+        render_kw={"placeholder": "Enter your username"},validators=[DataRequired(),Length(min=4, max=10)])
     email = StringField(label="Email",\
         render_kw={"placeholder":"Enter your email"}, validators=[DataRequired(), Email()])
     password = PasswordField(label="Password",\
