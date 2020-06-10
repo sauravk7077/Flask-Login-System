@@ -1,5 +1,5 @@
 from flask.blueprints import Blueprint
-from flask import render_template
+from flask import render_template, flash
 
 main = Blueprint('main', __name__)
 

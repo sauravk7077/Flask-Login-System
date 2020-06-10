@@ -14,11 +14,27 @@ body{
     --hover: hsl(60, 70%, 40%);
     --light-green: #269493;
     --central-green: #66B39A;
+    --error: hsl(0, 100%, 50%);
+    --warning: hsl(60, 100%, 50%);
+    --info: hsl(214, 100%, 50%);
     padding: 0;
     margin: auto;
+    width: 90%;
 
     /* background-color: var(--main-bg-color); */
 }
+
+*{
+    font-family: 'Nunito', sans-serif;
+    padding-top: 0;
+    border: none;
+}
+
+/* 
+-----------------------------------
+Navbar
+-----------------------------------
+ */
 
 
 #header{
@@ -109,22 +125,30 @@ Forms
  */
 
 
+.legend{
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 2em;
+}
+
+
 .content-section{
     display: flex;
     justify-content: center;
+    margin: 20px auto auto auto;
 }
 
 
 .content-section form{
     flex-basis: 400px;
-    flex-grow: 0.35;
+    flex-grow: 0.2;
 }
 
 
 .form-group{
     display: flex;
     text-align: left;
-    margin: 20px 10px 0 10px;
+    margin: 20px 0 0 0;
     justify-content: center;
 }
 
@@ -133,7 +157,8 @@ Forms
     flex: none;
     display: block;
     font-size: 1em;
-    width: 100px;
+    width: 140px;
+    align-self: center;
 }
 
 
@@ -143,6 +168,11 @@ Forms
 
 .form-submit{
     margin-bottom: 20px;
+}
+
+fieldset{
+    padding: 0;
+    border: none;
 }
 
 
@@ -176,3 +206,51 @@ Inputs, Buttons
      height: 40px;
      width: 100px;
  }
+
+
+
+/* 
+---------------------------
+Errors, Warnings and Info's
+---------------------------
+*/
+
+.errors{
+    width: 500px;
+    text-align: center;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.errors *{
+    display: block;
+}
+
+.red-error{
+    color: var(--error)
+}
+
+
+.yellow-warning{
+    color: var(--warning)
+}
+
+
+.blue-info{
+    color: var(--info)
+}
+
+
+.errors.red-error{
+    border: 2px solid var(--error);
+}
+
+
+.errors.yellow-warning{
+    border: 2px solid var(--warning);
+}
+
+
+.errors.blue-info{
+    border: 2px solid var(--info);
+}
