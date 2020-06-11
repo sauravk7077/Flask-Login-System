@@ -2,3 +2,4 @@
 .vscode
 install.txt
 __pycache__
+.mypy_cache
