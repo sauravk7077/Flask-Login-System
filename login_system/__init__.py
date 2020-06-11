@@ -1,16 +1,18 @@
 from flask import Flask
 from login_system.conf import Config
 from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt 
 
-db = SQLAlchemy()
-
+database = SQLAlchemy()
+flask_bcrypt = Bcrypt()
 
 def createApp(config_Class=Config):
     app = Flask(__name__)
     app.config.from_object(config_Class)
 
-    db.init_app(app)
-
+    database.init_app(app)
+    flask_bcrypt.init_app(app)
+    
     from login_system.users.routes import users
     from login_system.main.routes import main
 

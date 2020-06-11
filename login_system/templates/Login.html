@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <!-- Form -->
+    <div class="content-section">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <h3 class="legend">{{ title }}</h3>
+                <!-- Username group -->
+                <div class="form-group">
+                    {{ form.username.label(class='form-label') }}
+                    {{ form.username(class='form-control') }}
+                </div>
+                <!-- Password gorup -->
+                <div class="form-group">
+                    {{ form.password.label(class='form-label') }}
+                    {{ form.password(class='form-control') }}
+                </div>
+                <!-- Submit button group -->
+                <div class="form-group">
+                    {{ form.submit(class='form-submit') }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

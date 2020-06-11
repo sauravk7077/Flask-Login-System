@@ -8,7 +8,7 @@ class Config:
     Loads the secret key from the env file
     '''
     SECRET_KEY = os.getenv('KEY')
-    SQLALCHEMY_DATABASE_URI = 'sql:///site.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
 
     #Currently debug is set to true. It will be removed in the future
     DEBUG = True

@@ -22,7 +22,7 @@
                 <ul>
                     <li class="link"><a href="{{ url_for('main.home') }}">Home</a></li>
                     <li class="link"><a href="{{ url_for('users.register') }}">Register</a></li>
-                    <li class="link"><a href="#">Login</a></li>
+                    <li class="link"><a href="{{ url_for('users.login') }}">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -32,7 +32,6 @@
         {% if messages %}
             {% for category, message in messages %}
                 <section class="errors {{ category }}">
-                    <h4 class="{{ category }}">{{ category }}</h4>
                     <p>{{ message }}</p>
                 </section>
             {% endfor %}
