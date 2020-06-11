@@ -1,7 +1,8 @@
 from flask import Flask
 from login_system.conf import Config
+from 
 
-
+db = 
 
 
 def createApp(config_Class=Config):
