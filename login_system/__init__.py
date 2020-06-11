@@ -1,13 +1,15 @@
 from flask import Flask
 from login_system.conf import Config
-from 
+from flask_sqlalchemy import SQLAlchemy
 
-db = 
+db = SQLAlchemy()
 
 
 def createApp(config_Class=Config):
     app = Flask(__name__)
     app.config.from_object(config_Class)
+
+    db.init_app(app)
 
     from login_system.users.routes import users
     from login_system.main.routes import main
