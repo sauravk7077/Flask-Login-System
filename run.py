@@ -5,5 +5,7 @@ from flask import url_for
 
 init()
 app = createApp()
+a = "さ"
+a.decode
 app.run()
 
