@@ -6,7 +6,9 @@ variables
  */
 
 body{
-    --main-bg-color: #173145;
+    --main-color: #30e8bd;
+    --accent-color: #FF8235;
+    --text: #7115b4;
     --main-dark-color: hsl(320, 13%, 13%);
     --main-dark-light: hsl(320, 13%, 20%);
     --stand-out: hsl(60, 61%, 65%);
@@ -21,13 +23,15 @@ body{
     margin: auto;
     width: 90%;
 
-    /* background-color: var(--main-bg-color); */
+    background-color: var(--main-color);
 }
-
+/* Default properties */
 *{
     font-family: 'Nunito', sans-serif;
     padding-top: 0;
     border: none;
+    text-decoration: none;
+    color: var(--text);
 }
 
 /* 
@@ -39,22 +43,24 @@ Navbar
 
 #header{
     display: flex;
-    /* background: var(--main-dark-color); */
     justify-content: space-between;
+    align-items: center;
 }
 
 
 #logo{
     padding-left: 20px;
     font-size: 30px;
-    /* color: var(--stand-out); */
+    /* color: var(--accent-color); */
     flex-basis: 200px;
     flex-grow: 1;
+    padding: 10px;
 }
 
 
 #logo a{
-    font-family: 'Bungee Shade', cursive;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1px;
 }
 
 
@@ -84,7 +90,7 @@ Navbar
 .link{
     list-style: none;
     flex-basis: 100px;
-    /* background-color: var(--main-dark-light); */
+    background-color: var(--accent-color);
     height: 50px;
     display: flex;
     align-items: center;
