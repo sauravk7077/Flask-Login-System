@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <!-- Form -->
+    <div class="content-section">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <h3 class="legend">{{ title }}</h3>
+                <!-- Username group -->
+                <div class="form-group">
+                    {{ form.username.label(class='form-label') }}
+                    {{ form.username(class='form-control') }}
+                </div>
+                <!-- Email group -->
+                <div class="form-group">
+                    {{ form.email.label(class='form-label') }}
+                    {{ form.email(class='form-control') }}
+                </div>
+                <!-- Submit button group -->
+                <div class="form-group">
+                    {{ form.save(class='form-submit') }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

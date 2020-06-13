@@ -1,5 +1,6 @@
 from login_system import database, login_manager
 from flask_login import UserMixin
+from wtforms.validators import ValidationError
 
 @login_manager.user_loader
 def load_user(user_id):

@@ -10,6 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=PT+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Righteous&display=swap" rel="stylesheet">
     <script type="text/js" src="{{ url_for('static', filename='main.js') }}"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
 </head>
 <body>
     <!-- Navigation menu -->
@@ -22,6 +26,7 @@
                 <ul>
                     <li class="link"><a href="{{ url_for('main.home') }}">Home</a></li>
                     {% if current_user.is_authenticated %}
+                    <li class="link"><a href="{{ url_for('users.account') }}">Account</a></li>
                     <li class="link"><a href="{{ url_for('users.logout') }}">Logout</a></li>
                     {% else %}
                         <li class="link"><a href="{{ url_for('users.register') }}">Register</a></li>

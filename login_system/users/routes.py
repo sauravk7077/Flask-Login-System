@@ -1,6 +1,6 @@
 from flask.blueprints import Blueprint
 from flask import render_template, redirect, url_for, flash, request;
-from login_system.users.form import RegistrationForm, LoginForm
+from login_system.users.form import RegistrationForm, LoginForm, AccountForm
 from login_system import flask_bcrypt, database
 from login_system.database_models import User
 from login_system.users.utils import is_safe_url
@@ -34,8 +34,11 @@ def login():
             login_user(user, remember=form.remember.data)
             flash("You have successfully logged in!", "green-success")
             next = request.args.get('next')
-            if not is_safe_url(next):
-                return flask.abort(400)
+            if next:
+                if not is_safe_url(next):
+                    return flask.abort(400)
+                else:
+                    return redirect(next)
             return redirect(url_for('main.home'))
         flash("You have entered either incorrect username or password.", 'yellow-warning')
     return render_template('Login.html', form=form, title="Log in")
@@ -46,3 +49,19 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('main.home'))
+
+
+@users.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+    form = AccountForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        database.session.commit()
+        flash('Your account details has been updated', 'blue-info')
+        return redirect(url_for('main.home'))
+    elif request.method == "GET":
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+    return render_template('account.html', title="Account", form=form)
