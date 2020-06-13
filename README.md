@@ -1,6 +1,6 @@
 # Flask Login System
 
-I am currently trying to master flask. So, I am trying to create based on flask.
+I am currently trying to master flask. So, I am trying to create app based on flask.
 
 
 **To run this project, follow these steps**
