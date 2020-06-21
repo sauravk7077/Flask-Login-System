@@ -10,19 +10,11 @@
                 <div class="form-group">
                     {{ form.username.label(class='form-label') }}
                     {{ form.username(class='form-control') }}
-                    {% for error in form.username.errors %}
-                        <br/>
-                        {{ error }}
-                    {% endfor %}
                 </div>
                 <!-- Email group -->
                 <div class="form-group">
                     {{ form.email.label(class='form-label') }}
                     {{ form.email(class='form-control') }}
-                    {% for error in form.email.errors %}
-                        <br/>
-                        {{ error }}
-                    {% endfor %}
                 </div>
                 <!-- Password gorup -->
                 <div class="form-group">
@@ -41,4 +33,28 @@
             </fieldset>
         </form>
     </div>
+    {% if form.username.errors or form.email.errors or form.password.errors or form.confirm_password.errors %}
+        <div class="errors">
+            <div class="error-box">
+                {% for error in form.username.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            <div class="error-box">
+                {% for error in form.email.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            <div class="error-box">
+                {% for error in form.password.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            <div class="error-box">
+                {% for error in form.confirm_password.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

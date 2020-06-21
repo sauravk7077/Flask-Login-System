@@ -35,6 +35,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField(label="Submit")
 
 
+
 class AccountForm(FlaskForm):
     username = StringField(label="Username", validators=[DataRequired()])
     email = StringField(label='Email', validators=[DataRequired()])

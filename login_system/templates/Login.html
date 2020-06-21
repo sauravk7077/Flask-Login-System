@@ -27,4 +27,17 @@
             </fieldset>
         </form>
     </div>
+    {% if form.username.errors or form.password.errors %}
+        <div class="errors">
+            <div class="error-box">
+                {% for error in form.username.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+            <div class="error-box">
+                {% for error in form.password.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+    {% endif %}
 {% endblock %}
