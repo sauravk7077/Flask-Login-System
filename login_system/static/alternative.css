@@ -1,0 +1,285 @@
+/* 
+---------------------------
+Saves all the main colors in
+variables
+---------------------------
+ */
+
+ body{
+    --main-color: #ffffff;
+    --nav: #f8f8f8;
+    --nav-dark: #e7e7e7;
+    --text: #000000;
+    --green: #31d47d;
+    --green-darker: #119750;
+    --error: hsl(0, 100%, 50%);
+    --warning: hsl(60, 100%, 50%);
+    --info: hsl(214, 100%, 50%);
+    padding: 0;
+    margin: auto;
+    width: 90%;
+
+    background-color: var(--main-color);
+}
+/* Default properties */
+*{
+    font-family: 'Nunito', sans-serif;
+    padding-top: 0;
+    border: none;
+    text-decoration: none;
+    color: var(--text);
+}
+
+/* 
+-----------------------------------
+Navbar
+-----------------------------------
+ */
+
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav);
+}
+
+
+#logo{
+    padding-left: 20px;
+    font-size: 32px;
+    flex-basis: 200px;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+
+#logo a{
+    font-family: 'Kaushan Script', cursive;
+    line-height: 1px;
+}
+
+
+.navbar nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px 0 20px;
+    padding: 0;
+    flex-basis: 340px;
+}
+
+
+.navbar{
+    flex-basis: 300px;
+    flex-grow: 1;
+}
+
+
+.navbar, .navbar nav, .navbar nav ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.link{
+    list-style: none;
+    flex-basis: 100px;
+    background-color: var(--nav-dark);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link:hover{
+    animation: widthc 0.1s;
+}
+
+a{
+    text-decoration: none;
+    font-family: 'PT Mono', monospace;
+}
+
+
+a:hover{
+    cursor: pointer;
+}
+
+
+/* 
+------------------------
+For responsive content
+------------------------
+*/
+
+@media (min-width: 700px){
+    nav{
+        flex-basis: 400px;
+    }
+}
+
+
+/* 
+-------------------------------
+Forms
+-------------------------------
+ */
+
+
+.legend{
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 2em;
+}
+
+
+.content-section{
+    background-color: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    margin: 20px auto auto auto;
+}
+
+
+.content-section form{
+    flex-basis: 400px;
+    flex-grow: 0.2;
+}
+
+
+.form-group{
+    display: flex;
+    text-align: left;
+    margin: 20px 0 0 0;
+    justify-content: center;
+}
+
+
+.form-group label{
+    flex: none;
+    display: block;
+    font-size: 1em;
+    width: 140px;
+    align-self: center;
+}
+
+
+.form-group input{
+    display: block;
+    outline: none;
+    border: 1px solid #bbbbbb;
+}
+.form-group input[type='text']:hover, .form-group input[type='text']:focus{
+    background-color: var(--nav);
+}
+
+.form-submit{
+    margin-bottom: 20px;
+    background-color: var(--green);
+    border-radius: 5px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+.form-submit:hover, .form-submit:active{
+    background-color: var(--green-darker);
+}
+
+fieldset{
+    padding: 0;
+    border: none;
+    box-shadow: 0px 0px 4px #333333;
+}
+
+
+@media (max-width: 750px) {
+    .form-group{
+        display: block;
+    }
+    .form-group label{
+        width: 200px;
+        text-align: center;
+    }
+    .form-group *{
+        margin: auto;
+    }
+}
+
+/* 
+--------------------------
+Inputs, Buttons
+--------------------------
+ */
+
+
+ input[type='text'], input[type='password'] {
+     height: 40px;
+     width: 200px;
+     text-align: center;
+ }
+
+ button, input[type='submit']{
+     height: 40px;
+     width: 100px;
+ }
+
+
+
+/* 
+---------------------------
+Errors, Warnings and Info's
+---------------------------
+*/
+
+.errors{
+    width: 500px;
+    text-align: center;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.errors *{
+    display: block;
+}
+
+.red-error{
+    background-color: var(--error)
+}
+
+
+.yellow-warning{
+    color: var(--warning)
+}
+
+
+.blue-info{
+    color: var(--info)
+}
+
+
+.errors.red-error{
+    border: 2px solid var(--error);
+}
+
+
+.errors.yellow-warning{
+    border: 2px solid var(--warning);
+}
+
+
+.errors.blue-info{
+    border: 2px solid var(--info);
+}
+
+.error-box{
+    text-align: center;
+}
+
+
+/* 
+-------------------------------
+Animations
+-------------------------------
+*/
+

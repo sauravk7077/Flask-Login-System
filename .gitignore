@@ -4,3 +4,4 @@ install.txt
 __pycache__
 .mypy_cache
 emoji
+imp.txt

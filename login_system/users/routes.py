@@ -2,7 +2,7 @@ from flask.blueprints import Blueprint
 from flask import render_template, redirect, url_for, flash, request;
 from login_system.users.form import RegistrationForm, LoginForm, AccountForm
 from login_system import flask_bcrypt, database
-from login_system.database_models import User
+from login_system.database_models import User, Role
 from login_system.users.utils import is_safe_url
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -18,7 +18,7 @@ def register():
         user = User(username=form.username.data, email=form.email.data ,password = hashed_pwd)
         database.session.add(user)
         database.session.commit()
-        flash("You have successfully created your account.", "blue-info")
+        flash("You have successfully created your account.", "success")
         return redirect(url_for('users.login'))
     return render_template('Register.html', title="Register", form=form)
 
@@ -32,7 +32,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and flask_bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
-            flash("You have successfully logged in!", "green-success")
+            flash("You have successfully logged in!", "success")
             next = request.args.get('next')
             if next:
                 if not is_safe_url(next):
@@ -59,9 +59,16 @@ def account():
         current_user.username = form.username.data
         current_user.email = form.email.data
         database.session.commit()
-        flash('Your account details has been updated', 'blue-info')
+        flash('Your account details has been updated', 'info')
         return redirect(url_for('main.home'))
     elif request.method == "GET":
         form.username.data = current_user.username
         form.email.data = current_user.email
     return render_template('account.html', title="Account", form=form)
+
+@users.route('/user_control')
+@login_required
+def user_control():
+    if current_user.roles.id:
+        return redirect(url_for('main.home'))
+    return render_template('admin_page.html', title = "Admin")

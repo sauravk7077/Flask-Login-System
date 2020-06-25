@@ -9,6 +9,8 @@ database = SQLAlchemy()
 flask_bcrypt = Bcrypt()
 login_manager = LoginManager()
 login_manager.login_view = "users.login"
+sql_alchemy_adapter  = None
+user_manager = None
 
 
 def createApp(config_Class=Config):
@@ -27,3 +29,4 @@ def createApp(config_Class=Config):
     app.register_blueprint(main)
 
     return app
+
