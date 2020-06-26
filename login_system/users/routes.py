@@ -1,9 +1,9 @@
 from flask.blueprints import Blueprint
 from flask import render_template, redirect, url_for, flash, request;
-from login_system.users.form import RegistrationForm, LoginForm, AccountForm
+from login_system.users.form import RegistrationForm, LoginForm, AccountForm, RoleForm
 from login_system import flask_bcrypt, database
 from login_system.database_models import User, Role
-from login_system.users.utils import is_safe_url
+from login_system.users.utils import is_safe_url, isAdmin
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -16,6 +16,7 @@ def register():
     if form.validate_on_submit():
         hashed_pwd = flask_bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = User(username=form.username.data, email=form.email.data ,password = hashed_pwd)
+        user.roles.append(Role.query.filter_by(name = 'member').first())
         database.session.add(user)
         database.session.commit()
         flash("You have successfully created your account.", "success")
@@ -66,9 +67,23 @@ def account():
         form.email.data = current_user.email
     return render_template('account.html', title="Account", form=form)
 
-@users.route('/user_control')
+@users.route('/user_control', methods=['GET','POST'])
 @login_required
 def user_control():
-    if current_user.roles.id:
-        return redirect(url_for('main.home'))
-    return render_template('admin_page.html', title = "Admin")
+    form = RoleForm()    
+    if isAdmin():
+        if form.validate_on_submit():
+            user = User.query.filter_by(username=form.username.data).first()
+            role = Role.query.filter_by(name=form.name.data).first()
+            user.roles.append(role)
+            database.session.commit()
+            return redirect(url_for('main.home'))
+    return render_template('admin_page.html', title = "Admin", form=form)
+
+@users.route('/all_user', methods=['GET'])
+@login_required
+def all_users():
+    if isAdmin():
+        return render_template('all_user.html')
+    flash("Access Denied", category="danger")
+    return redirect(url_for('main.home'))

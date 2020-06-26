@@ -53,3 +53,8 @@ class AccountForm(FlaskForm):
             if user:
                 raise ValidationError("This email is already takes. Please choose another one.")
     
+class RoleForm(FlaskForm):
+    name = StringField(label="name", validators=[DataRequired()])
+    username = StringField(label="username", validators=[DataRequired()])
+    save = SubmitField(label="Save")
+

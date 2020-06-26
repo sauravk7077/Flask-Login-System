@@ -31,3 +31,6 @@ class User(database.Model, UserMixin):
 class Role(database.Model):
     id = database.Column(database.Integer(), primary_key=True)
     name = database.Column(database.String(50), unique=True)
+
+    def __repr__(self):
+        return f'Role({self.name})'

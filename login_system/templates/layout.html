@@ -33,11 +33,13 @@
                     <a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
                 </li>
                 {% if current_user.is_authenticated %}
-                    {% if current_user.roles.name == "admin" %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('users.user_control') }}">Admin</a>
-                    </li>
-                    {% endif%}
+                    {% for role in current_user.roles %}
+                    {% if role.name == 'admin' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('users.user_control') }}">Admin</a>
+                        </li>
+                        {% endif %}
+                    {% endfor%}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('users.account') }}">Account</a>
                 </li>
@@ -59,7 +61,7 @@
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
-                    <section class="alert {{ category }}" role="alert">
+                    <section class="alert alert-{{ category }}" role="alert">
                         <p>{{ message }}</p>
                     </section>
                 {% endfor %}
