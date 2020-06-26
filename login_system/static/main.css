@@ -1,7 +1,7 @@
 .navbar-nav{
     margin-left: auto;
 }
-fieldset{
+fieldset, .alert{
     max-width: 500px;
 }
 .fieldset *{
