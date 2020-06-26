@@ -1,9 +1,7 @@
 from login_system import createApp
 from colorama import init
 
-
-init()
-app = createApp()
-app.run()
-
-
+if __name__ == '__main__':
+    init()
+    app = createApp()
+    app.run()
