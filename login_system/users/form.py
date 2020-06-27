@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from wtforms import StringField, SubmitField, PasswordField, BooleanField, FileField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, FileField, SelectField
 from flask_login import current_user
 from login_system.database_models import User
 
@@ -54,7 +54,7 @@ class AccountForm(FlaskForm):
                 raise ValidationError("This email is already takes. Please choose another one.")
     
 class RoleForm(FlaskForm):
-    name = StringField(label="name", validators=[DataRequired()])
-    username = StringField(label="username", validators=[DataRequired()])
+    name = SelectField(label="Type", choices=[("Admin"), ("Member")], validators=[DataRequired()])
+    username = SelectField(label="Username", choices=[], validators=[DataRequired()])
     save = SubmitField(label="Save")
 

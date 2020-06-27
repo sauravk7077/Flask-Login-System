@@ -7,3 +7,7 @@ fieldset, .alert{
 .fieldset *{
     text-align: center;
 }
+
+body{
+	background: url('background/bg.jpg');
+}

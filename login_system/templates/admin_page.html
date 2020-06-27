@@ -9,7 +9,7 @@
                 <div class="form-group">
                     {% if form.username.errors %}
                         {{ form.username.label }}
-                        {{ form.username(class='form-control control-label is-invalid') }}
+                        {{ form.username(class='custom-select is-invalid') }}
                         <div class="invalid-feedback">
                             {% for error in form.username.errors %}
                                 {{ error }}
@@ -17,14 +17,14 @@
                         </div>
                     {% else %}
                         {{ form.username.label }}
-                        {{ form.username(class='form-control control-label') }}
+                        {{ form.username(class='custom-select') }}
                     {% endif %}
                 </div>
                 <!-- Name group -->
                 <div class="form-group">
                     {% if form.name.errors %}
                         {{ form.name.label }}
-                        {{ form.name(class='form-control control-label is-invalid') }}
+                        {{ form.name(class='custom-select is-invalid') }}
                         <div class="invalid-feedback">
                             {% for error in form.name.errors %}
                                 {{ error }}
@@ -32,7 +32,7 @@
                         </div>
                     {% else %}
                         {{ form.name.label }}
-                        {{ form.name(class='form-control control-label') }}
+                        {{ form.name(class='custom-select') }}
                     {% endif %}
                 </div>
                 <div class="form-group">
@@ -41,4 +41,25 @@
             </fieldset>
         </form>
     </div>
+    <div class="container m-2">
+        <button class='btn btn-secondary' id="requestUserBtn">All Users</button>
+    </div>
+    <script>
+        let usr = document.getElementById('username');
+        let usrBtn = document.getElementById('requestUserBtn');
+        usrBtn.onclick = function(e) {
+            $.get( "all_user",function( data ) {
+                var doc = new DOMParser().parseFromString(data, "text/xml");
+                console.log(doc);
+                $('.container-fluid');
+            });
+        };
+        usr.onchange = function(e) {
+            console.log(usr.value);
+            $.post('/user_control', {
+                selected : usr.value
+            });
+        };
+    </script>
 {% endblock %}
+

@@ -11,6 +11,6 @@ def is_safe_url(target):
 
 def isAdmin():
     for role in current_user.roles:
-        if role == 'admin':
+        if role.name == 'admin':
             return True
     return False
